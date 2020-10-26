@@ -1,0 +1,16 @@
+<div *ngIf="!connected" class="user-name-box">
+    <div>
+        Choose username: <input type="text" [(ngModel)]="username">
+    </div>
+    <button type="button" [disabled]="!username || connected" (click)="connectWs()">CONNECT</button><br>
+</div>
+<div *ngIf="connected">
+    Connected as {{username}}
+</div> 
+<button type="button" [disabled]="!connected || joined" (click)="connectToChat()">JOIN CHAT</button>
+<div class="message-box">
+    <div *ngFor="let message of messages" [ngClass]="detectClass(message)">
+        <span>{{message.sender || message.username}}: {{message.content}}</span>
+    </div>
+</div>
+<input type="text" [(ngModel)]="message"><button type="button" [disabled]="!joined || !message" (click)="sendMessage()">SEND</button>
