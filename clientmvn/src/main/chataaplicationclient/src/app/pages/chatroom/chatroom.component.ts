@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-chatroom',
@@ -11,7 +12,7 @@ export class ChatroomComponent implements OnInit {
 
   constructor() { }
 
-  webSocketEndPoint = 'http://localhost:8080/samplews';
+  webSocketEndPoint = environment.wsURL;
   topic = '/topic/access';
   stompClient: any;
   public username: string;
