@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  wsURL: 'http://95.111.229.45:8080/samplews'
+  wsURL: 'http://localhost:8080/samplews'
 };
 
 /*
