@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-chatroom',
   templateUrl: './chatroom.component.html',
   styleUrls: ['./chatroom.component.scss']
 })
-export class ChatroomComponent implements OnInit {
+export class ChatroomComponent implements OnInit , OnDestroy {
 
   constructor() { }
 
@@ -61,5 +61,9 @@ export class ChatroomComponent implements OnInit {
     if (message.sender) { return 'text-center'; }
     if (message.username !== this.username) {return 'text-right'; }
 
+  }
+
+  ngOnDestroy(): void {
+    this.stompClient.disconnect(() => console.log('disconnected'), {});
   }
 }

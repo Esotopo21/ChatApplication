@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatroomComponent } from './pages/chatroom/chatroom.component';
 import { FormsModule } from '@angular/forms';
+import { PrivateChatComponent } from './private-chat/private-chat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatroomComponent
+    ChatroomComponent,
+    PrivateChatComponent
   ],
   imports: [
     BrowserModule,
